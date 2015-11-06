@@ -59,10 +59,23 @@ map.on('style.load', function () {
             "line-width": 1
         }
     });
-
+    map.addLayer({
+        "id": "runsFilter",
+        "type": "line",
+        "source": "runs",
+        "source-layer": "original",
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "#0000ff",
+            "line-width": 1
+        }
+    });
     document.getElementById('rangeInput').addEventListener('change', function(e) {
         var value = this.value;
-        map.setFilter('runs', ['>', 'score', parseInt(value)]);
+        map.setFilter('runsFilter', ['>', 'score', parseInt(value)]);
     });
 });
 </script>
